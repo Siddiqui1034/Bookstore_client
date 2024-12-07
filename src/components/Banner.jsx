@@ -19,7 +19,7 @@ const Banner = () => {
         </div>
 
         {/* Right side */}
-        <div className='md:w-1/2 h-full space-y-8 '>
+        <div className='md:w-1/2 h-auto space-y-8'>
             <BannerCard />
         </div>
       </div>

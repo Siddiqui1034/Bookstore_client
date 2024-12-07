@@ -1,0 +1,11 @@
+.starContainer{
+    font-size: xx-large;
+    display: flex;
+    padding: 10px;
+}
+.star{
+    padding: 5px;
+}
+.gold{
+    color: yellow
+}

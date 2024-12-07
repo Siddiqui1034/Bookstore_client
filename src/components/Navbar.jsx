@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { GiEvilBook } from "react-icons/gi";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { FaX } from "react-icons/fa6";
+import { AuthContext, useAuthentication } from "../context/AuthProvider";
 
 
 const Navbar = () => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isSticky, setIsSticky] = useState(false)
+  
+    const {user, createUser} =useAuthentication()
+    // console.log(121, user.email)
 
     const navItmes = [
         { path: '/',        link: 'Home' },
@@ -43,7 +47,7 @@ const Navbar = () => {
   return (
 
     <header className="w-full bg-transparent fixed top-0 left-0 right-0 transition-all ease-in duration-300">   
-    <nav className={`py-4 lg:x-24 px-4 ${isSticky ? " sticky top-0 left-0 right-0 bg-blue-300": ""}`}>
+    <nav className={`py-4 px-4 lg:px-24 ${isSticky ? " sticky top-0 left-0 right-0 bg-blue-300": ""}`}>
 
         <div className="flex justify-between items-center text-base gap-8">
         {/* logo */}
@@ -66,7 +70,11 @@ const Navbar = () => {
 
         {/* button for large devices */}
         <div className="space-x-2 hidden lg:flex items-center">
-            <button><FaBarsStaggered className='text-sky-600 hover:text-sky-950 cursor-pointer' /></button>
+            <button><FaBarsStaggered className='text-sky-600 hover:text-sky-950 cursor-pointer' />
+            {
+                user? user.email :""
+            }
+            </button>
         </div>
 
         {/* menu button for mobile devices */}

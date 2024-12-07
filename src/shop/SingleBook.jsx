@@ -1,9 +1,11 @@
 import React from 'react'
+import { useLoaderData } from 'react-router-dom'
 
 const SingleBook = () => {
+  const {_id} = useLoaderData();
   return (
     <div>
-      SingleBook
+      singleBook {_id}
     </div>
   )
 }
